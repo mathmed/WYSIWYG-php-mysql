@@ -1,0 +1,112 @@
+
+
+/* Styles */
+
+.textarea {
+    min-height: 300px;
+    border: 1px solid grey;
+    border-radius: 3px;
+    outline:none;
+    transition: all;
+    padding: 10px;
+}
+
+.textarea:focus{
+    border: 2px solid #00447C;
+}
+
+.panel {
+    background: #2E3641;
+    margin: 0;
+    border-radius:3px;
+}
+
+.icon,.font {
+    margin-left: 10px;
+    background: #2E3641;
+    color: white;
+    outline-style: none;
+    border: none;
+
+}
+.btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.divider {
+    margin:3px 30px 3px 30px;
+    border-right: 1px solid white;
+}
+
+.icon:hover,.font:hover {
+    background: #424a54;
+}
+
+.title h1 {
+    color: grey;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.sublim {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.trashed {
+    font-weight: bold;
+    text-decoration: line-through;
+}
+
+.font {
+    font-weight: bold;
+}
+
+.div-button {
+    margin: 20px 0 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add {
+    background: #228b22;
+    color: white;
+    font-weight: bold;
+    transition: 0.5s all;
+    cursor:pointer;
+    margin-left: 20px;
+}
+
+.add:hover{
+    background: white;
+    color: #228b22;
+    border-radius: 10px;
+    border: 2px solid #228b22;
+}
+
+.see {
+    background: #ff8d00;
+    color: white;
+    font-weight: bold;
+    transition: 0.5s all;
+    cursor:pointer;
+}
+
+.see:hover{
+    background: white;
+    color: #ff8d00;
+    border-radius: 10px;
+    border: 2px solid #ff8d00;
+}
+
+.icon-space {
+    margin-right: 8px;
+}
+
+.selected {
+    background:#575e66;
+}
