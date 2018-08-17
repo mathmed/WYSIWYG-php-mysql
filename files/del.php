@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD']=="DELETE"){
 
     /* running the query and deleting the file */
     unlink($src);
-    $connection->execute($query);
+    //$connection->execute($query);
     
     echo 0;
 }

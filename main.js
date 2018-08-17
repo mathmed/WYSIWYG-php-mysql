@@ -60,8 +60,4 @@ $(document).ready(function(){
 
     })
 
-    $(".open-modal").click(function(){
-        var type = $(this).attr("id");
-        $("#modal-media").attr("media", type);
-    })
 })

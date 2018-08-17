@@ -110,3 +110,8 @@
 .selected {
     background:#575e66;
 }
+
+.demo {
+    width:200px;
+    height: 200px;
+}

@@ -1,12 +1,7 @@
 <?php
-    /* files directory */
-    $directory_imgs = "files/img/";
-    $directory_videos = "files/video/";
-    $directory_pdfs = "files/pdf/";
 
-    $images = glob($directory_imgs."*.*");
-    $videos = glob($directory_videos."*.*");
-    $pdfs = glob($directory_pdfs."*.*");
+    include "controller.php";
+    $controller = new Controller();
 
 ?>
 
@@ -40,26 +35,7 @@
         /* functions responsible for doing media management */
 
         $(document).ready(function(){
-            $("#management_img").fileinput({
-                uploadUrl: "files/upload.php",
-                uploadExtraData: {media: "img"},
-                uploadAsync: false,
-                minFileCount: 1,
-                maxFileCount: 20,
-                showUpload: false, 
-                showRemove: false,
-                initialPreview: [
-                <?php foreach($images as $image){?>
-                    "<img src='<?php echo $image; ?>' height='120px' width = '120px' class='file-preview-image'>",
-                <?php } ?>],
-
-                initialPreviewConfig: [<?php foreach($images as $image){ $info=explode("/",$image);?>
-                {caption: "<?php echo $info[3];?>",  height: "120px", width: "120px", url: "files/del.php?media=img", key:"<?php echo $info[3];?>"},
-                <?php } ?>]
-                
-            }).on("filebatchselected", function(event, files) {
-                $("#management_img").fileinput("upload");
-            });
+            <?php $controller->script_control_input(); ?>
         });
     </script>
     
@@ -98,9 +74,9 @@
                 <div class = "divider"></div>
 
                 <button id = "createLink" class = "btn icon can-selected"><i class = "fa fa-link"></i></button>
-                <button type = "button" id = "image"  class = "btn icon open-modal" data-toggle = "modal" data-target = "#modal-media"><i class = "fa fa-image"></i></button>
-                <button type = "button" id = "video" class = "btn icon open-modal" data-toggle = "modal" data-target = "#modal-media"><i class = "fa fa-video "></i></button>
-                <button type = "button" id = "pdf" class = "btn icon open-modal" data-toggle = "modal" data-target = "#modal-media"><i class = "fa fa-file-pdf"></i></button>
+                <button type = "button" id = "images"  class = "btn icon open-modal" data-toggle = "modal" data-target = "#modal-img"><i class = "fa fa-image"></i></button>
+                <button type = "button" id = "video" class = "btn icon open-modal" data-toggle = "modal" data-target = "#modal-video"><i class = "fa fa-video "></i></button>
+                <button type = "button" id = "pdf" class = "btn icon open-modal" data-toggle = "modal" data-target = "#modal-pdf"><i class = "fa fa-file-pdf"></i></button>
                   
             </div>
             <div class = "textarea" contenteditable name = "textarea"></div>
@@ -116,18 +92,18 @@
     </div>
     <!-- /Container -->
 
-    <!-- Media modal -->
-   <div class="modal" id = "modal-media" tabindex="-1" role="dialog" media = "">
+    <!-- image modal -->
+   <div class="modal" id = "modal-img" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Adicione uma mídia</h5>
+                <h5 class="modal-title">Adicione uma imagem</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <input id='management_img' name='images[]' type='file' multiple class='file-loading'>        
+                <input id="management_images" class = "input-modal" name="images[]" type='file' multiple class='file-loading'>        
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary">Adicionar</button>
@@ -136,9 +112,51 @@
             </div>
         </div>
     </div>
-    <!-- /Media Modal -->
+    <!-- /image Modal -->
    
+    <!-- video modal -->
+    <div class="modal" id = "modal-video" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Adicione um vídeo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input id="management_videos" class = "input-modal" name="videos[]" type='file' multiple class='file-loading'>        
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Adicionar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- /video Modal -->
 
+    <!-- pdf modal -->
+    <div class="modal" id = "modal-pdf" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Adicione um PDF</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input id="management_pdfs" class = "input-modal" name="pdfs[]" type='file' multiple class='file-loading'>        
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Adicionar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- /pdf Modal -->
 </body>
 
 
