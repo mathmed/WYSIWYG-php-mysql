@@ -4,12 +4,12 @@
 Class Controller {
     
     /* this function will return the scripts that control media management */
-    function script_control_input(){
+    public function script_control_input(){
 
         /* files directory */
-        $directory_imgs = 'files/img/';
-        $directory_videos = 'files/video/';
-        $directory_pdfs = 'files/pdf/';
+        $directory_imgs = 'files/images/';
+        $directory_videos = 'files/videos/';
+        $directory_pdfs = 'files/pdfs/';
 
         $images = glob($directory_imgs.'*.*');
         $videos = glob($directory_videos.'*.*');
@@ -19,7 +19,7 @@ Class Controller {
         echo "
             $('#management_images').fileinput({
                 uploadUrl: 'files/upload.php',
-                uploadExtraData: {media: 'img'},
+                uploadExtraData: {media: 'images'},
                 uploadAsync: false,
                 minFileCount: 1,
                 maxFileCount: 20,
@@ -28,7 +28,7 @@ Class Controller {
                 initialPreview: [";
 
                 foreach($images as $image){
-                    echo "\"<img src='$image' height='120px' width = '120px' class='file-preview-image'>\",";
+                    echo "\"<img class = 'imagx' src='$image' height='120px' width = '120px' class='file-preview-image'>\",";
                 }
                 echo "
                 ],
@@ -37,12 +37,12 @@ Class Controller {
                 foreach($images as $image){ 
                     $info=explode('/',$image);
                     $info = $info[2];
-                    echo " {caption:'$info',height: '120px', width: '120px', url: 'files/del.php?media=img', key:'$info'},";
+                    echo " {caption:'$info',height: '120px', width: '120px', url: 'files/del.php?media=images', key:'$info'},";
                 }
                 echo "],
                 
             }).on('filebatchselected', function(event, files) {
-                $('#management_img').fileinput('upload');
+                $('#management_images').fileinput('upload');
             });
         ";
         
@@ -52,7 +52,7 @@ Class Controller {
             $('#management_videos').fileinput({
                 uploadUrl: 'files/upload.php',
                 deleteUrl: 'files/del.php',
-                uploadExtraData: {media: 'video'},
+                uploadExtraData: {media: 'videos'},
                 uploadAsync: false,
                 minFileCount: 1,
                 maxFileCount: 20,
@@ -61,7 +61,7 @@ Class Controller {
                 initialPreview: [";
 
                 foreach($videos as $video){
-                    echo "\"<video src = '$video' class = 'demo' controls> <source src = '$video' type = 'video/mp4' class='file-preview-video'></video>\",";
+                    echo "\"<video class = 'video' src = '$video' class = 'demo' controls> <source src = '$video' type = 'video/mp4' class='file-preview-video'></video>\",";
                 }
 
                 echo "
@@ -85,7 +85,7 @@ Class Controller {
         $('#management_pdfs').fileinput({
                 uploadUrl: 'files/upload.php',
                 deleteUrl: 'files/del.php',
-                uploadExtraData: {media: 'pdf'},
+                uploadExtraData: {media: 'pdfs'},
                 uploadAsync: false,
                 minFileCount: 1,
                 maxFileCount: 20,
@@ -104,7 +104,7 @@ Class Controller {
                     $info = explode("/",$pdf);
                     $info = $info[2];
 
-                   echo " {caption:'$info', height: '120px', width: '120px', url: 'files/del.php?media=pdf', key: '$info'},";
+                   echo " {caption:'$info', height: '120px', width: '120px', url: 'files/del.php?media=pdfs', key: '$info'},";
                 }
 
             echo "]
@@ -117,7 +117,6 @@ Class Controller {
 
     }
 }
-
 
 
 ?>

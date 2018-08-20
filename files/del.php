@@ -16,17 +16,20 @@ if($_SERVER['REQUEST_METHOD']=="DELETE"){
 
     /* starting the query */
     $src = $url.$key;
-    $src_query = "../files/".$url.$key;
+    $src_query =$url.$key;
 
-    $query = "DELETE FROM files WHERE src = '$src_query'";
+    /* val to query */
+
+    $val = [
+        "file_src" => ["param" => $src_query, "type" => PDO::PARAM_STR]
+    ];
 
     /* starting a connection class */
     $connection = new Connection();
+    $connection->delete("files", $val, "file_src = ?");
 
     /* running the query and deleting the file */
     unlink($src);
-    //$connection->execute($query);
-    
     echo 0;
 }
 

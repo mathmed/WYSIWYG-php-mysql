@@ -37,6 +37,7 @@
         $(document).ready(function(){
             <?php $controller->script_control_input(); ?>
         });
+
     </script>
     
     
@@ -93,7 +94,7 @@
     <!-- /Container -->
 
     <!-- image modal -->
-   <div class="modal" id = "modal-img" tabindex="-1" role="dialog">
+    <div class="modal" id = "modal-img" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -104,10 +105,6 @@
             </div>
             <div class="modal-body">
                 <input id="management_images" class = "input-modal" name="images[]" type='file' multiple class='file-loading'>        
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Adicionar</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             </div>
             </div>
         </div>

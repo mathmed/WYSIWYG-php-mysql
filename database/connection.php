@@ -19,9 +19,9 @@
 			/* trying to start a connection */
 			try{
 				
-				$connect = new PDO("mysql:host=".$hostname.";dbname=".$database.";charset=".$charset, $username, $password);
+				$connect = new PDO("mysql:host=".$this->hostname.";dbname=".$this->database.";charset=".$this->charset, $this->username, $this->password);
 				$connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				return $conexao;
+				return $connect;
 			
 			}catch(PDOException $e){
 				echo "Error" . $e;
@@ -83,16 +83,27 @@
 			return $fetch;
 		}
 
-		public function execute($query){
+		public function delete($table, $val, $condition){
+			/* starting a connection */			
+			$connect = $this->connect();
 
-			/* starting a connection */		
-            $conexao = $this->connect();
+			/* starting the query */
+			$query = "DELETE FROM $table WHERE $condition";
 
-            /* preparing the query */
-            $stmt = $conexao->prepare($query);
+			/* preparing the query */
+			$stmt = $connect->prepare($query);
 
-            /* running the query and closing connection */
+			/* binding the parameters */
+			$cont = 1;
+			foreach($val as $key => $value){
+				$stmt->bindParam($cont, $value['param'], $value['type']);
+				$cont++;	
+			}
+
+			/* running the query */
 			$stmt->execute();
+
+			/* closing the connection */
 			$conexao = null;
 		}
 	}

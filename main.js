@@ -60,4 +60,8 @@ $(document).ready(function(){
 
     })
 
+    $(".select-file").click(function(){
+        console.log("testando")
+    })
+
 })
