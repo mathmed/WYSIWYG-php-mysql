@@ -28,7 +28,7 @@
 			}
 		}
 
-        /* function to insert a register in database */
+        /* function to receive a register from database */
 		public function insert($table, $fields, $val, $condition, $quantity){
 
 			/* starting a connection */			
@@ -46,7 +46,6 @@
 				$stmt->bindParam($cont, $value['param'], $value['type']);
 				$cont++;	
 			}
-
 			/* running the query */
             $stmt->execute();
             
@@ -54,34 +53,7 @@
 			$connect = null;
 		}
 
-		public function receive($table, $fields, $val, $condition){
-
-			/* starting a connection */			
-			$connect = $this->connect();
-
-			/* starting the query */
-			$query = "SELECT $fields FROM $table $condition";
-			
-			/* preparing the query */
-			$stmt = $connect->prepare($query);
-
-			/* binding the parameters */
-			$cont = 1;
-			foreach($val as $key => $value){
-				$stmt->bindParam($cont, $value['parametro'], $value['tipo']);
-				$cont++;	
-			}
-
-			/* running the query */
-			$stmt->execute();
-			
-			/* fetch */
-			$fetch = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-			/* closing the connection and returning */
-			$conexao = null;
-			return $fetch;
-		}
+		/* function to delete a register from database */
 
 		public function delete($table, $val, $condition){
 			/* starting a connection */			
@@ -102,9 +74,9 @@
 
 			/* running the query */
 			$stmt->execute();
-
 			/* closing the connection */
 			$conexao = null;
 		}
 	}
+
 ?>

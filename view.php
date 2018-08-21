@@ -12,7 +12,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>WYSIWYG with PHP, MySQL and jQuery</title>
+    <title>POST WYSIWYG with PHP, MySQL and jQuery</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Including styles -->
@@ -40,17 +40,15 @@
 
     </script>
     
-    
 </head>
 
 <body>
 
     <!-- Container -->
     <div class = "container">
-
         <!-- Title -->
         <div class = "title">
-            <h1>Example of WYSIWYG with PHP, MySQL and jQuery</h1>
+            <h1>Example of POST WYSIWYG with PHP, MySQL and jQuery</h1>
         </div>
         <!-- /Title -->
 
@@ -83,12 +81,11 @@
             <div class = "textarea" contenteditable name = "textarea"></div>
 
             <div class = "div-button">
-                <button class = "btn see"><i class = "fa fa-eye icon-space"></i>See preview</button>
-                <button class = "btn add"><i class = "fa fa-check icon-space"></i>Send to database</button>
+                <button class = "btn see" id = 'preview' type = 'button'><i class = "fa fa-eye icon-space"></i>See preview</button>
+                <button class = "btn add" id = 'send' type = 'button'><i class = "fa fa-check icon-space"></i>Send to database</button>
             </div>
         </div>
         <!-- /Editor -->
-
 
     </div>
     <!-- /Container -->
@@ -98,7 +95,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Adicione uma imagem</h5>
+                <h5 class="modal-title">Click on an image to add it</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -116,17 +113,13 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Adicione um vídeo</h5>
+                <h5 class="modal-title">Click on a video to add it</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <input id="management_videos" class = "input-modal" name="videos[]" type='file' multiple class='file-loading'>        
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Adicionar</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             </div>
             </div>
         </div>
@@ -138,17 +131,13 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Adicione um PDF</h5>
+                <h5 class="modal-title">Click on a PDF to add it</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <input id="management_pdfs" class = "input-modal" name="pdfs[]" type='file' multiple class='file-loading'>        
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Adicionar</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             </div>
             </div>
         </div>

@@ -4,11 +4,13 @@
 
 .textarea {
     min-height: 300px;
+    max-height: 600px;
     border: 1px solid grey;
     border-radius: 3px;
     outline:none;
     transition: all;
     padding: 10px;
+    overflow-y: auto;
 }
 
 .textarea:focus{
@@ -114,5 +116,14 @@
 .demo {
     width:200px;
     height: 200px;
+    cursor: pointer;
 }
 
+.file-preview-image {
+    cursor: pointer;
+}
+
+.file-textarea {
+    width: 400px;
+    height: 400px;
+}
