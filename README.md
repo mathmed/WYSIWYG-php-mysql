@@ -10,7 +10,7 @@ $ git clone https://github.com/mathmed/WYSIWYG-php-mysql.git
 
 after downloaded, go to the path 
 ```html
-    /database/config.php
+/database/config.php
 ``` 
 and set the credentials of your database. In the same folder, select the `wysiwyg.sql` file and import in your database.
 
