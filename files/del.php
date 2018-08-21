@@ -11,8 +11,8 @@ $url = $_GET['media']."/";
 
 if($_SERVER['REQUEST_METHOD']=="DELETE"){
 
-    parse_str(file_get_contents("php://input"),$datosDELETE);
-    $key= $datosDELETE['key'];
+    parse_str(file_get_contents("php://input"), $del);
+    $key = $del['key'];
 
     /* starting the query */
     $src = $url.$key;
