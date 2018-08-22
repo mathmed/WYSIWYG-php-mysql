@@ -85,7 +85,6 @@ $(document).ready(function(){
             var src = $(this).find("object").attr("data");
             $(".textarea").append("<br><center><object data='" +src+ "' type='application/pdf' width='70%' height='400px'></object></center><br>");
         }
-    
     });
 
     /* function to see a post preview */
